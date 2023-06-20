@@ -29,11 +29,11 @@ fs.readdir('/usr/local/books/', (err, files) => {
       `);
     });
 
-  // Create endpoints for each .txt file
+  // Create endpoints for each .pdf file
   files.forEach((file) => {
     const fileName = file.replace('.pdf', '');
     app.get(`/${fileName}`, (req, res) => {
-      // Read the contents of the .txt file
+      // Read the contents of the .pdf file
       fs.readFile(`/usr/local/books/${file}`, 'utf8', (err, data) => {
         if (err) {
           console.error(err);
